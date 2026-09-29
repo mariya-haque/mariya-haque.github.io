@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Syeda Mariya Haque</title>
+<meta name="description" content="Syeda Mariya Haque, AI engineer in Karachi. I build AI agents, RAG systems and realtime voice apps with Python, FastAPI and the OpenAI APIs.">
+<meta name="author" content="Syeda Mariya Haque">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Syeda Mariya Haque · AI Engineer">
+<meta property="og:description" content="Syeda Mariya Haque, AI engineer in Karachi. I build AI agents, RAG systems and realtime voice apps with Python, FastAPI and the OpenAI APIs.">
+<meta property="og:url" content="https://mariya-haque.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0b2824">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b2824'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='800' fill='%237fe0c4' text-anchor='middle'%3ESM%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://mariya-haque.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;600;700;800;900&family=Red+Hat+Text:wght@400;500;600&family=Red+Hat+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: full-bleed deep-teal hero with a voice waveform, then a centered 1120px column of sections on a pale mint-grey page; contact closes on the same teal. */
+:root {
+  --bg: #eff4f2;
+  --surface: #ffffff;
+  --ink: #0f201d;
+  --muted: #55675f;
+  --line: #d4e0db;
+  --accent: #0a7564;
+  --accent-ink: #ffffff;
+  --accent-soft: #daf0e9;
+  --signal: #b24a2c;
+  --ok: #1d7a4c;
+  --hero-bg: #0b2824;
+  --hero-panel: #10342f;
+  --hero-fg: #ecf6f2;
+  --hero-muted: #9dbbb1;
+  --hero-line: #1f4a43;
+  --hero-accent: #7fe0c4;
+  --hero-warm: #ff8f70;
+  --hero-signal: #ffb27a;
+  --hero-ok: #7fe0c4;
+  --shadow: 0 1px 2px rgba(15, 32, 29, .05), 0 8px 24px rgba(15, 32, 29, .07);
+  --f-display: "Red Hat Display", "Segoe UI", Arial, sans-serif;
+  --f-body: "Red Hat Text", "Segoe UI", Roboto, Arial, sans-serif;
+  --f-mono: "Red Hat Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #08110f; --surface: #0f1b18; --ink: #e2ede9; --muted: #92aaa1; --line: #1f302b;
+    --accent: #6fd6b9; --accent-ink: #08110f; --accent-soft: #123a32; --signal: #ff9a7a; --ok: #6fd6b9;
+    --hero-bg: #0a211e; --hero-panel: #0f2d28; --hero-line: #1c413a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #08110f; --surface: #0f1b18; --ink: #e2ede9; --muted: #92aaa1; --line: #1f302b;
+  --accent: #6fd6b9; --accent-ink: #08110f; --accent-soft: #123a32; --signal: #ff9a7a; --ok: #6fd6b9;
+  --hero-bg: #0a211e; --hero-panel: #0f2d28; --hero-line: #1c413a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6; margin: 0; }
+.container { max-width: 1120px; margin-inline: auto; padding-inline: 24px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.015em; }
+p { margin: 0; }
+.label { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); }
+section[id] { scroll-margin-top: 80px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-body); font-weight: 600; font-size: 15px;
+  padding: 11px 18px; border-radius: 10px; border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn svg { width: 16px; height: 16px; flex: none; }
+
+/* Nav */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--hero-bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hero-line);
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; gap: 16px; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--hero-fg); text-decoration: none; font-family: var(--f-display); font-weight: 700; }
+.mono {
+  width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center;
+  background: var(--hero-warm); color: var(--hero-bg); font-size: 13px; font-weight: 800; letter-spacing: 0;
+}
+.nav nav { display: flex; gap: 22px; font-size: 14px; }
+.nav nav a { color: var(--hero-muted); text-decoration: none; }
+.nav nav a:hover { color: var(--hero-fg); }
+
+/* Hero */
+.hero { position: relative; background: var(--hero-bg); color: var(--hero-fg); overflow: hidden; }
+#wave { position: absolute; inset: auto 0 0 0; width: 100%; height: 220px; opacity: .55; pointer-events: none; }
+.hero .container { position: relative; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; padding-block: 72px 96px; }
+.hero .container > * { min-width: 0; }
+.status {
+  display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 12.5px; color: var(--hero-muted);
+  border: 1px solid var(--hero-line); border-radius: 999px; padding: 5px 12px 5px 10px; background: var(--hero-panel);
+}
+.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--hero-ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--hero-ok) 25%, transparent); }
+.hero h1 { margin-top: 22px; font-size: clamp(42px, 6.2vw, 76px); font-weight: 900; line-height: 0.96; letter-spacing: -0.03em; }
+.hero h1 span { color: var(--hero-warm); }
+.hero .role { margin-top: 14px; font-family: var(--f-display); font-weight: 600; font-size: clamp(19px, 2.2vw, 23px); color: var(--hero-accent); }
+.hero .lede { margin-top: 18px; font-size: 18px; color: var(--hero-fg); max-width: 50ch; }
+.hero .sub { margin-top: 12px; color: var(--hero-muted); max-width: 54ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.btn.primary { background: var(--hero-accent); color: var(--hero-bg); }
+.btn.ghost { background: transparent; color: var(--hero-fg); border-color: var(--hero-line); }
+.btn.ghost:hover { border-color: var(--hero-muted); }
+
+/* Trace */
+.trace {
+  margin: 0; background: var(--hero-panel); border: 1px solid var(--hero-line); border-radius: 16px;
+  font-family: var(--f-mono); font-size: 13px; line-height: 1.55; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+}
+.trace-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--hero-line); color: var(--hero-muted); font-size: 12px; }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--hero-line); }
+.trace-head span:last-child { margin-left: auto; }
+.trace ol { list-style: none; margin: 0; padding: 16px 18px 20px; display: grid; gap: 12px; }
+.trace li { display: grid; grid-template-columns: 5.5ch 1fr; gap: 10px; }
+.trace li > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.who { color: var(--hero-muted); }
+.who.agent { color: var(--hero-accent); }
+.who.done { color: var(--hero-ok); }
+.tag { font-size: 11px; padding: 1px 7px; border-radius: 5px; margin-left: 6px; white-space: nowrap; color: var(--hero-accent); border: 1px solid color-mix(in srgb, var(--hero-accent) 40%, transparent); }
+.tag.write { color: var(--hero-signal); border-color: color-mix(in srgb, var(--hero-signal) 45%, transparent); }
+.approve { display: flex; gap: 8px; margin-top: 8px; }
+.approve b { font-weight: 600; padding: 3px 12px; border-radius: 6px; border: 1px solid var(--hero-line); font-size: 12px; color: var(--hero-muted); }
+.approve b.yes { background: var(--hero-ok); color: var(--hero-bg); border-color: var(--hero-ok); }
+.cursor { display: inline-block; width: 8px; height: 15px; background: var(--hero-accent); vertical-align: -2px; margin-left: 3px; animation: blink 1.1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Facts strip */
+.facts { position: relative; margin-top: -44px; z-index: 2; }
+.facts ul {
+  list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
+}
+.facts li { padding: 20px 24px; display: grid; gap: 2px; border-left: 1px solid var(--line); min-width: 0; }
+.facts li:first-child { border-left: 0; }
+.facts b { font-family: var(--f-display); font-size: 28px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.facts span { color: var(--muted); font-size: 14px; }
+
+/* Sections */
+main { display: grid; gap: 104px; padding-block: 96px 0; }
+.sec-head { display: grid; gap: 10px; margin-bottom: 36px; }
+.sec-head h2 { font-size: clamp(30px, 3.8vw, 42px); font-weight: 800; letter-spacing: -0.03em; }
+.sec-head p { color: var(--muted); max-width: 60ch; }
+.sec-row { display: flex; justify-content: space-between; align-items: end; gap: 16px 24px; flex-wrap: wrap; margin-bottom: 28px; }
+.sec-row .sec-head { margin-bottom: 0; }
+
+/* Experience timeline */
+.jobs { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 20px; }
+.jobs::before { content: ""; position: absolute; left: 11rem; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.jobs > li { display: grid; grid-template-columns: 11rem 1fr; gap: 36px; position: relative; }
+.jobs > li::before {
+  content: ""; position: absolute; left: calc(11rem - 6px); top: 26px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--surface); border: 3px solid var(--accent);
+}
+.jobs > li:first-child::before { background: var(--accent); }
+.jobs .when { font-family: var(--f-mono); font-size: 13px; color: var(--muted); padding-top: 22px; font-variant-numeric: tabular-nums; }
+.job { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; min-width: 0; }
+.job-top { display: flex; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; align-items: baseline; }
+.job h3 { font-size: 21px; font-weight: 700; }
+.job .org { font-weight: 600; color: var(--accent); font-size: 15px; }
+.job ul { margin: 12px 0 0; padding-left: 1.15em; display: grid; gap: 6px; color: var(--ink); }
+.job li::marker { color: var(--muted); }
+.products { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.products span { font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+
+/* Selected work */
+.work { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px;
+  display: flex; flex-direction: column; gap: 14px; min-width: 0;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+.card .kicker { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: center; }
+.pill { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); }
+.card h3 { font-size: 23px; font-weight: 700; }
+.card p { color: var(--ink); }
+.card .detail { font-family: var(--f-mono); font-size: 12.5px; line-height: 1.55; color: var(--muted); background: var(--bg); border-radius: 10px; padding: 12px 14px; overflow-wrap: anywhere; }
+.card .detail code { color: var(--ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+.chips span { font-family: var(--f-mono); font-size: 12px; padding: 3px 9px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); }
+
+/* Project index */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button {
+  font-family: var(--f-body); font-weight: 500; font-size: 14px; padding: 7px 14px; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink);
+}
+.filters button:hover { border-color: var(--muted); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.filters .n { color: var(--muted); margin-left: 6px; font-family: var(--f-mono); font-size: 12px; }
+.filters button[aria-pressed="true"] .n { color: var(--bg); opacity: .7; }
+.grid { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.grid li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.grid .cat { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.grid .name { font-family: var(--f-display); font-weight: 700; font-size: 17px; }
+.grid .desc { color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+.grid .tech { font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); margin-top: auto; padding-top: 8px; border-top: 1px dashed var(--line); }
+.count { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+
+/* Stack */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.skills > div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; display: grid; gap: 12px; align-content: start; }
+.skills h3 { font-size: 16px; font-weight: 700; }
+.skills ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.skills li { font-size: 13.5px; padding: 4px 10px; background: var(--bg); border-radius: 7px; }
+
+/* Principles */
+.rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.rules > div { border-top: 2px solid var(--ink); padding-top: 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.rules h3 { font-size: 20px; font-weight: 700; }
+.rules p { color: var(--muted); max-width: 52ch; }
+
+/* Education */
+.edu { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; }
+.edu > div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px 26px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.edu h3 { font-size: 22px; font-weight: 700; }
+.muted { color: var(--muted); }
+.certs { list-style: none; margin: 0; padding: 0; }
+.certs li { display: flex; justify-content: space-between; gap: 4px 16px; flex-wrap: wrap; padding-block: 11px; border-bottom: 1px solid var(--line); }
+.certs li:last-child { border-bottom: 0; padding-bottom: 0; }
+.certs b { font-weight: 600; }
+.certs li > span:last-child { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); }
+
+/* Contact */
+.contact { background: var(--hero-bg); color: var(--hero-fg); border-radius: 24px; padding: 56px 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden; }
+.contact > * { min-width: 0; position: relative; }
+.contact .label { color: var(--hero-muted); }
+.contact h2 { margin-top: 10px; font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; letter-spacing: -0.03em; }
+.contact .lead { margin-top: 14px; color: var(--hero-muted); max-width: 44ch; }
+.reach { display: grid; gap: 10px; }
+.reach .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--hero-panel); border: 1px solid var(--hero-line); border-radius: 12px; padding: 14px 16px; }
+.reach .row .k { font-family: var(--f-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--hero-muted); width: 6.5rem; }
+.reach .row a, .reach .row .v { color: var(--hero-fg); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; min-width: 0; flex: 1; }
+.reach .row a:hover { color: var(--hero-accent); }
+.reach .row .v { user-select: all; }
+.copy { font-family: var(--f-mono); font-size: 12px; padding: 5px 10px; border-radius: 7px; cursor: pointer; background: var(--hero-accent); color: var(--hero-bg); border: 0; font-weight: 600; }
+
+footer { padding-block: 40px 56px; }
+footer .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13.5px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .hero .container, .contact, .edu { grid-template-columns: 1fr; }
+  .work, .rules { grid-template-columns: 1fr; }
+  .facts ul { grid-template-columns: repeat(2, 1fr); }
+  .facts li:nth-child(3) { border-left: 0; }
+  .facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .jobs::before { left: 6px; }
+  .jobs > li { grid-template-columns: 1fr; gap: 8px; padding-left: 32px; }
+  .jobs > li::before { left: 0; top: 4px; }
+  .jobs .when { padding-top: 0; }
+  main { gap: 80px; }
+  .contact { padding: 40px 28px; }
+}
+@media (max-width: 600px) {
+  .nav nav { display: none; }
+  .container { padding-inline: 16px; }
+  .hero .container { padding-block: 48px 88px; }
+  .card { padding: 22px; }
+  .trace { font-size: 12px; }
+  .facts li { padding: 16px; }
+  .facts b { font-size: 24px; }
+  .contact { padding: 32px 20px; border-radius: 18px; }
+  .reach .row .k { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; }
+  .btn, .card { transition: none; }
+  .btn:hover, .card:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a class="brand" href="#top"><span class="mono">SM</span>Syeda Mariya Haque</a>
+    <nav aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="container">
+    <div>
+      <span class="status"><i></i>BS Artificial Intelligence · class of 2026</span>
+      <h1>Syeda Mariya Haque<span>.</span></h1>
+      <p class="role">AI Engineer · Karachi, Pakistan</p>
+      <p class="lede">I build AI agents that search documents, call real APIs, and answer the phone.</p>
+      <p class="sub">I work in Python and FastAPI, using the OpenAI Responses API, Agents SDK and Realtime API. I've built legal research bots, a multilingual mentor chatbot, WhatsApp and phone agents, and SaaS dashboards with a built-in assistant. Before LLMs, I trained CNNs to find tumors in X-rays and MRI scans.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">View my work
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"/></svg></a>
+        <button type="button" class="btn ghost copy-email" id="hero-copy">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="m2 4 6 5 6-5"/></svg><span>Copy email</span></button>
+        <a class="btn ghost" href="https://www.linkedin.com/in/syedamariyahaque">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/mariya-haque">GitHub</a>
+      </div>
+    </div>
+
+    <figure class="trace" aria-label="Example agent turn from the Calendar and Gmail tool-calling project">
+      <div class="trace-head"><span class="dots"><i></i><i></i><i></i></span><span>calendar-gmail-agent</span><span>example turn</span></div>
+      <ol>
+        <li><span class="who">you</span><span>Move tomorrow's standup to 11:30 and email the team.</span></li>
+        <li><span class="who agent">agent</span><span>search_events <span class="tag">read · hosted MCP</span></span></li>
+        <li><span class="who agent">agent</span><span>update_event <span class="tag write">write · needs approval</span>
+          <span class="approve" aria-hidden="true"><b class="yes">Approve</b><b>Deny</b></span></span></li>
+        <li><span class="who agent">agent</span><span>send_email <span class="tag write">write · needs approval</span></span></li>
+        <li><span class="who done">done</span><span>Standup moved to 11:30. Invite update sent to 4 attendees.<span class="cursor" aria-hidden="true"></span></span></li>
+      </ol>
+    </figure>
+  </div>
+</section>
+
+<div class="container facts">
+  <ul>
+    <li><b>32</b><span>projects built</span></li>
+    <li><b>3</b><span>AI roles since 2023</span></li>
+    <li><b>4</b><span>LLM providers in production</span></li>
+    <li><b>3</b><span>certifications</span></li>
+  </ul>
+</div>
+
+<main class="container">
+  <section id="experience">
+    <div class="sec-head"><span class="label">Experience</span><h2>Where I've worked</h2></div>
+    <ol class="jobs">
+      <li>
+        <span class="when">Jul 2026 – Sep 2026</span>
+        <div class="job">
+          <div class="job-top"><h3>AI Engineering Intern</h3><span class="org">The Botss · Karachi</span></div>
+          <ul>
+            <li>Built conversational AI products for clients on LLMs and FastAPI back ends.</li>
+            <li>Designed RAG pipelines with document chunking, embeddings and ChromaDB vector search so answers stay grounded in source documents.</li>
+            <li>Built agents with OpenAI tool calling and Google ADK, including a Google Calendar scheduling agent and the RestaurantOS assistant.</li>
+            <li>Built REST APIs, connected them to web front ends, and handled testing, debugging and delivery in an agile team.</li>
+          </ul>
+          <div class="products"><span>Travel Bot</span><span>EzQanoon</span><span>Commify AI</span><span>Arthur</span><span>RestaurantOS</span></div>
+        </div>
+      </li>
+      <li>
+        <span class="when">Oct 2024 – Jan 2025</span>
+        <div class="job">
+          <div class="job-top"><h3>AI Intern</h3><span class="org">OneStop Vendors · Remote</span></div>
+          <ul>
+            <li>Built an end-to-end RAG system with LangChain, FAISS, ChromaDB and Streamlit for PDF Q&amp;A and voice-driven document interaction.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <span class="when">Oct 2023 – Feb 2026</span>
+        <div class="job">
+          <div class="job-top"><h3>Freelance AI/ML Developer</h3><span class="org">Upwork &amp; Freelancer · Remote</span></div>
+          <ul>
+            <li>Won and delivered AI/ML and full-stack projects for clients.</li>
+            <li>Ran each project end to end: requirements, client communication, back end and database work, delivery.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="work">
+    <div class="sec-head"><span class="label">Selected work</span><h2>Things I've shipped</h2><p>Six builds that show the range: production client back ends, safe assistants, phone and voice agents, and messaging commerce.</p></div>
+    <div class="work">
+      <article class="card">
+        <div class="kicker"><span class="pill">Production · client</span><span class="label">EN / DE / RU</span></div>
+        <h3>Arthur, an AI mentor</h3>
+        <p>Streaming chat backend for an AI mentor, deployed as three language instances. The provider (OpenAI, Grok, Gemini or Anthropic) switches at runtime without a restart. Answers are grounded in the mentor's books and video transcripts, and chats accept images.</p>
+        <p class="detail">Rolling summary every <code>4</code> user turns to cut token cost · CRM sync to GoHighLevel · GitHub Actions deploy to EC2 under PM2</p>
+        <div class="chips"><span>FastAPI</span><span>PostgreSQL</span><span>Agents SDK</span><span>SSE</span></div>
+      </article>
+      <article class="card">
+        <div class="kicker"><span class="pill">Production · legal</span><span class="label">Agentic RAG</span></div>
+        <h3>EzJudgements</h3>
+        <p>A legal research agent over a curated store of judgement PDFs. The model runs its own multi-step file searches instead of one retrieve-then-answer pass, and falls back to labelled web search when a judgement isn't in the store.</p>
+        <p class="detail">Streams <code>text.delta</code> · <code>tool.searching</code> · <code>tool.searched</code> · <code>done</code> · every tool call and citation saved</p>
+        <div class="chips"><span>Responses API</span><span>file_search</span><span>PostgreSQL</span><span>Docker</span></div>
+      </article>
+      <article class="card">
+        <div class="kicker"><span class="pill">SaaS</span><span class="label">Safe by design</span></div>
+        <h3>RestaurantOS</h3>
+        <p>A restaurant dashboard for orders, menu and table floor plan, with a chat assistant that answers questions about live data. The assistant is read-only by construction: no tools are sent to the model, so there is nothing to misuse.</p>
+        <p class="detail">Figures carry their period in the key, e.g. <code>revenue_today_from_completed_orders_only</code></p>
+        <div class="chips"><span>FastAPI</span><span>PostgreSQL</span><span>Jinja2</span><span>OpenAI</span></div>
+      </article>
+      <article class="card">
+        <div class="kicker"><span class="pill">Voice</span><span class="label">Phone calls</span></div>
+        <h3>Twilio phone agent</h3>
+        <p>Call a normal phone number and talk to an OpenAI realtime agent. The server bridges Twilio Media Streams to a realtime session, lets callers interrupt mid-sentence, and tracks playback with Twilio mark events.</p>
+        <p class="detail">Call audio: G.711 μ-law, 8 kHz, buffered in 50 ms chunks</p>
+        <div class="chips"><span>Twilio</span><span>Realtime API</span><span>Agents SDK</span><span>WebSockets</span></div>
+      </article>
+      <article class="card">
+        <div class="kicker"><span class="pill">Voice</span><span class="label">Streaming TTS</span></div>
+        <h3>Fish Audio voice ordering</h3>
+        <p>An LLM answer streams into Fish Audio's text-to-speech while it's still being written, so speech starts before the sentence ends. A second app takes food orders by push-to-talk, reads them back and places them.</p>
+        <p class="detail">Text is buffered 4 words, then 8, and never split mid-word</p>
+        <div class="chips"><span>FastAPI</span><span>Fish Audio</span><span>ChromaDB</span><span>WebSockets</span></div>
+      </article>
+      <article class="card">
+        <div class="kicker"><span class="pill">Messaging</span><span class="label">Commerce</span></div>
+        <h3>WhatsApp ordering bot</h3>
+        <p>Customers pick a restaurant, browse a photo catalog, build a cart and check out inside WhatsApp. Staff use a dashboard to update orders, reply to customers and edit catalog products.</p>
+        <p class="detail">Native WhatsApp catalog orders · HTML confirmations over SMTP · replies in the customer's language</p>
+        <div class="chips"><span>WhatsApp Cloud API</span><span>FastAPI</span><span>OpenAI</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-row">
+      <div class="sec-head"><span class="label">All projects</span><h2>The full catalog</h2></div>
+      <span class="count" id="count">32 projects</span>
+    </div>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button type="button" id="f-agents" data-f="agents">Agents &amp; RAG</button>
+      <button type="button" id="f-voice" data-f="voice">Voice</button>
+      <button type="button" id="f-apps" data-f="apps">Full-stack apps</button>
+      <button type="button" id="f-ml" data-f="ml">ML &amp; vision</button>
+      <button type="button" id="f-adk" data-f="adk">Google ADK</button>
+      <button type="button" id="f-learn" data-f="learn">Learning</button>
+    </div>
+    <ul class="grid" id="index"></ul>
+  </section>
+
+  <section id="stack">
+    <div class="sec-head"><span class="label">Stack</span><h2>Tools I work with</h2></div>
+    <div class="skills">
+      <div><h3>AI &amp; agents</h3><ul>
+        <li>OpenAI Responses API</li><li>Agents SDK</li><li>Realtime API</li><li>MCP</li><li>LangChain</li><li>Structured outputs</li><li>Google ADK</li><li>Gemini</li><li>Anthropic</li><li>Grok</li>
+      </ul></div>
+      <div><h3>Retrieval &amp; data</h3><ul>
+        <li>ChromaDB</li><li>FAISS</li><li>Qdrant</li><li>OpenAI vector stores</li><li>Embeddings</li><li>PostgreSQL</li><li>MySQL</li><li>SQLite</li><li>SQLAlchemy</li>
+      </ul></div>
+      <div><h3>Machine learning</h3><ul>
+        <li>CNNs</li><li>OpenCV</li><li>Data augmentation</li><li>Pandas</li><li>NumPy</li><li>Jupyter</li>
+      </ul></div>
+      <div><h3>Backend</h3><ul>
+        <li>Python</li><li>FastAPI</li><li>Flask</li><li>SSE</li><li>WebSockets</li><li>JWT</li><li>Google OAuth</li><li>Email OTP</li>
+      </ul></div>
+      <div><h3>Integrations</h3><ul>
+        <li>Twilio</li><li>WhatsApp Cloud API</li><li>Meta Graph API</li><li>Gmail &amp; Calendar APIs</li><li>Fish Audio</li><li>Deepgram</li><li>GoHighLevel</li><li>Playwright</li>
+      </ul></div>
+      <div><h3>Frontend &amp; shipping</h3><ul>
+        <li>React 19</li><li>MERN stack</li><li>TypeScript</li><li>Tailwind</li><li>Streamlit</li><li>Docker</li><li>GitHub Actions</li><li>AWS EC2</li><li>PM2</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="label">Approach</span><h2>How I build agents</h2></div>
+    <div class="rules">
+      <div><h3>Writes wait for a person</h3><p>In my Calendar and Gmail agent, any tool that creates, updates, deletes or sends pauses for Approve or Deny. Reads go straight through.</p></div>
+      <div><h3>Take the dangerous tool away</h3><p>If an assistant only needs to read, it gets no write path at all. A jailbroken prompt in RestaurantOS has nothing to call.</p></div>
+      <div><h3>Stream the whole turn</h3><p>Users see tokens, tool searches and speech as they happen, over SSE or WebSockets, instead of waiting for a finished answer.</p></div>
+      <div><h3>Make accounts hard to probe</h3><p>A wrong password and an unknown email return the same message, and someone else's session id returns the same 404 as a missing one.</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><span class="label">Education</span><h2>Degree &amp; certifications</h2></div>
+    <div class="edu">
+      <div>
+        <span class="label">Degree</span>
+        <h3>BS Artificial Intelligence</h3>
+        <p>Dawood University of Engineering &amp; Technology, Karachi</p>
+        <p class="muted">Expected 2026</p>
+      </div>
+      <div>
+        <span class="label">Certifications</span>
+        <ul class="certs">
+          <li><b>Google Advanced Data Analytics</b><span>Jun – Aug 2025</span></li>
+          <li><span><b>Google AI Essentials</b> · Coursera</span><span>Sep – Nov 2025</span></li>
+          <li><span><b>Python and Object-Oriented Programming</b> · DataCamp</span><span>Oct – Nov 2024</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <span class="label">Contact</span>
+      <h2>Need an agent that works with your real systems?</h2>
+      <p class="lead">I'm open to AI engineering roles and freelance projects. Email is the fastest way to reach me.</p>
+    </div>
+    <div class="reach">
+      <div class="row"><span class="k">Email</span><span class="v" id="email-addr">mariya25689@gmail.com</span><button type="button" class="copy copy-email" id="contact-copy"><span>Copy</span></button></div>
+      <div class="row"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/syedamariyahaque">linkedin.com/in/syedamariyahaque</a></div>
+      <div class="row"><span class="k">GitHub</span><a href="https://github.com/mariya-haque">github.com/mariya-haque</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container"><span>Syeda Mariya Haque · AI Engineer</span><span>Karachi, Pakistan</span></div>
+</footer>
+
+<script>
+const CATS = { agents: "Agents & RAG", voice: "Voice", apps: "Full-stack app", ml: "ML & vision", adk: "Google ADK", learn: "Learning" };
+const P = [
+  ["agents","Arthur backend","Multilingual AI mentor chat with runtime provider switching and CRM sync","FastAPI · Agents SDK · Postgres"],
+  ["agents","EzJudgements","Agentic RAG over legal judgement PDFs with web-search fallback","Responses API · Docker"],
+  ["agents","FCCP Judgments RAG","Q&A over Federal Constitutional Court of Pakistan judgments, with a scraper; English or Roman Urdu","ChromaDB · OpenAI"],
+  ["agents","Calendar + Gmail agent","Reads through hosted MCP connectors, writes through local tools, every write approved","Responses API · MCP"],
+  ["agents","Mail-checker agent","Counts CRM inbox emails by sender or unread status","Agents SDK · FastAPI"],
+  ["agents","Facebook Page bot","Auto-replies to Page comments and answers Messenger DMs","Graph API · OpenAI"],
+  ["agents","WhatsApp ordering bot","Restaurant ordering with cart, checkout, emails and a staff dashboard","WhatsApp Cloud API"],
+  ["agents","Ad Library scraper","Finds Shopify stores in Meta Ad Library and extracts public contact info","Playwright"],
+  ["voice","Twilio phone agent","Phone calls bridged to an OpenAI realtime agent that callers can interrupt","Twilio · Realtime"],
+  ["voice","Realtime voice backend","WebSocket backend for an airline demo with handoffs and tool approval","Realtime · Agents SDK"],
+  ["voice","Voice pipeline","Speech-to-text, agent, text-to-speech with handoff","Agents SDK"],
+  ["voice","Gemini voice assistant","Sub-second voice replies with complaint detection and ChromaDB retrieval across 50+ intents","LangChain · Gemini · Deepgram"],
+  ["voice","Fish Audio TTS + ordering","LLM output streamed to speech mid-sentence; push-to-talk ordering","Fish Audio · ChromaDB"],
+  ["apps","RestaurantOS","Orders, menu, tables and a read-only assistant over live data","FastAPI · Postgres · OpenAI"],
+  ["apps","LearnHub LMS","Courses, timed tests, ECAT/SAT/MDCAT tracks, live Jitsi classes","FastAPI · Jinja2"],
+  ["apps","Pharmacy Store","Storefront with admin and pharmacist panels","FastAPI · React 19 · TS"],
+  ["apps","meeting-ai","Meeting and calendar assistant with tasks and Google Meet links","FastAPI · React · OAuth"],
+  ["apps","Kiraya","Property rentals with tenant, owner and admin roles","FastAPI · React · Vite"],
+  ["apps","CineVault","Movie portal with JWT auth, admin uploads, comments and a chatbot","FastAPI · OpenAI"],
+  ["apps","Career counselor","Structured intake, then a six-month plan built around your real week","Structured outputs · SQLite"],
+  ["ml","Lung Tumor Detector","CNN-based diagnostic aid for chest X-rays; 90%+ accuracy, 30% faster diagnosis","CNN · Python"],
+  ["ml","Brain Tumor Classifier","CNN trained on MRI scans with data augmentation; 92% accuracy (IEEE)","CNN · Python"],
+  ["ml","Emotion Detection","Webcam emotion recognizer for happy, sad, angry and neutral; 85%+ accuracy","OpenCV · CNN"],
+  ["apps","Farmers Management System","Farmer records portal with login control and PDF export for 100+ entries","Flask · MySQL"],
+  ["adk","ADK calendar assistant","Web app with Google OAuth and 14 calendar and memory tools","Google ADK · Gemini"],
+  ["adk","Calendar chatbot","Terminal bot that books, reschedules and cancels meetings","Google ADK"],
+  ["adk","Money exchange agent","Currency conversion with ExchangeRate-API","Google ADK"],
+  ["adk","Frankfurter rates agent","Exchange rates from the free ECB-backed API","Google ADK"],
+  ["learn","Agents SDK course","Seven scripts: runner, tools, orchestration, human-in-the-loop, sandbox","Agents SDK"],
+  ["learn","MCP examples","Local FastMCP server over HTTP and the hosted DeepWiki server","Agents SDK · MCP"],
+  ["learn","Streaming chatbot","Terminal chatbot, plus a version with timeouts and retries","OpenAI"],
+  ["learn","FastAPI auth demo","Signup and login with JWT and a plain HTML/JS frontend","FastAPI · JWT"]
+];
+
+// Project filter
+const list = document.getElementById("index");
+const count = document.getElementById("count");
+const buttons = document.querySelectorAll(".filters button");
+buttons.forEach(b => {
+  const n = b.dataset.f === "all" ? P.length : P.filter(p => p[0] === b.dataset.f).length;
+  const s = document.createElement("span"); s.className = "n"; s.textContent = n; b.append(s);
+});
+function render(f) {
+  list.replaceChildren(...P.filter(p => f === "all" || p[0] === f).map(([cat, name, desc, tech]) => {
+    const li = document.createElement("li");
+    [["cat", CATS[cat]], ["name", name], ["desc", desc], ["tech", tech]].forEach(([c, t]) => {
+      const el = document.createElement("span"); el.className = c; el.textContent = t; li.append(el);
+    });
+    return li;
+  }));
+  const n = list.children.length;
+  count.textContent = n + (n === 1 ? " project" : " projects");
+  buttons.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
+  try { localStorage.setItem("pf-filter", f); } catch (e) {}
+}
+buttons.forEach(b => b.addEventListener("click", () => render(b.dataset.f)));
+let start = "all";
+try { start = localStorage.getItem("pf-filter") || "all"; } catch (e) {}
+render([...buttons].some(b => b.dataset.f === start) ? start : "all");
+
+// Copy email
+const EMAIL = "mariya25689@gmail.com";
+document.querySelectorAll(".copy-email").forEach(btn => {
+  const label = btn.querySelector("span");
+  const original = label.textContent;
+  btn.addEventListener("click", () => {
+    const done = msg => { label.textContent = msg; setTimeout(() => { label.textContent = original; }, 2000); };
+    const fallback = () => {
+      const addr = document.getElementById("email-addr");
+      const r = document.createRange(); r.selectNodeContents(addr);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      addr.scrollIntoView({ block: "center" });
+      done("Press Ctrl+C");
+    };
+    try { navigator.clipboard.writeText(EMAIL).then(() => done("Copied " + EMAIL), fallback); } catch (e) { fallback(); }
+  });
+});
+
+// Hero waveform
+(() => {
+  const c = document.getElementById("wave");
+  const ctx = c.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let w = 0, h = 0, t = 0;
+  function size() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    w = c.clientWidth; h = c.clientHeight;
+    c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function draw() {
+    const cs = getComputedStyle(document.documentElement);
+    const accent = cs.getPropertyValue("--hero-accent").trim() || "#7fe0c4";
+    ctx.clearRect(0, 0, w, h);
+    const layers = [[0.9, 34, 0.012, 1.0], [0.45, 22, 0.02, 1.7], [0.25, 14, 0.031, 2.6]];
+    layers.forEach(([alpha, amp, freq, speed], i) => {
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += 4) {
+        const env = Math.sin((x / w) * Math.PI);
+        const y = h * 0.6 + Math.sin(x * freq + t * speed + i) * amp * env + Math.sin(x * freq * 2.3 - t * speed * 0.6) * amp * 0.35 * env;
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = accent; ctx.globalAlpha = alpha * 0.5; ctx.lineWidth = i === 0 ? 1.6 : 1;
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+  }
+  function loop() { t += 0.012; draw(); requestAnimationFrame(loop); }
+  size(); draw();
+  addEventListener("resize", () => { size(); draw(); });
+  if (!still) requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
